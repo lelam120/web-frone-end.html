@@ -1,0 +1,22 @@
+body{
+    background-image: url('../images/download.jpg');
+    background-size: cover;
+}
+h1{
+    color: #ee1414;/* màu*/
+}
+p{
+    color: #aaec0f;
+    font-size: 16px;/* cỡ chữ*/
+    line-height: 1.5;/* giãn dòng*/
+    font-family: Arial, Helvetica, sans-serif;/* kiểu chữ*/
+    text-align: left;/* căn lề (justify, left, center)*/
+    text-decoration: none;/* trang trí dưới chữ*//* underline gạch chân chữ, line-through gạch chữ, overline gạch trên chữ*/
+    text-transform: none;/* chuyển dạng chữ*//* uppercase, lowercase, capitalize*/
+    font-weight: normal;
+    /*100-thin, 200- semi-light, 300- light,400-normal, 500- medium, 600- semibold,
+    700- bold, 800- extrabold, 900- black*/
+    background-color: none;
+    width: 600px;
+    border-bottom: 1px solid #1f87c4;/*gạch chân 1 đoạn*/
+}
