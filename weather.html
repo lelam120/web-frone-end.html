@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/layout.css"/>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 id="city">TÊN THÀNH PHỐ</h1>
+            <h2>Nhiệt độ: <span id="temp">20<sup>o</sup></span>C</h2>
+            <h2>Độ ẩm: <span id="humidity">70</span>%</h2>
+            <h2>Áp suất: <span id="pressure">1000</span></h2>
+        </div>
+    </section>
+    <script type = "text/javascript">
+        //code here
+        var ob = { // object --JSON
+            "city": "Hà Nội, Việt Nam",
+            "weather": {
+                "temp": 22,
+                "humidity": 60,
+                "pressure": 1002
+            }
+        }
+        console.log(ob.city);
+        console.log(ob.weather.temp);
+        var c = document.getElementById("city");
+        c.innerText=ob.city;
+        var t = document.getElementById("temp");
+        t.innerText=ob.weather.temp;
+        var h = document.getElementById("humidity");
+        h.innerText=ob.weather.humidity;
+        var p = document.getElementById("pressure");
+        p.innerText=ob.weather.pressure;
+    </script>
+</body>
+</html>
