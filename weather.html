@@ -9,6 +9,11 @@
 <body>
     <section class="section">
         <div class="container">
+            <div class="container">
+                <input onkeyup="entercityname(this)" name="text" type="text" placeholder="Enter cityname"/>
+                <button onclick="run()" type="button">search</button>
+                <p id="notification">Please enter city name</p>
+            </div>
             <h1 id="city">TÊN THÀNH PHỐ</h1>
             <h2>Nhiệt độ: <span id="temp">20<sup>o</sup></span>C</h2>
             <h2>Độ ẩm: <span id="humidity">70</span>%</h2>
@@ -17,24 +22,24 @@
     </section>
     <script type = "text/javascript">
         //code here
-        var ob = { // object --JSON
-            "city": "Hà Nội, Việt Nam",
-            "weather": {
-                "temp": 22,
-                "humidity": 60,
-                "pressure": 1002
-            }
+        var diadiem;
+        function entercityname(e) {
+            diadiem = e.value;
         }
-        console.log(ob.city);
-        console.log(ob.weather.temp);
-        var c = document.getElementById("city");
-        c.innerText=ob.city;
-        var t = document.getElementById("temp");
-        t.innerText=ob.weather.temp;
-        var h = document.getElementById("humidity");
-        h.innerText=ob.weather.humidity;
-        var p = document.getElementById("pressure");
-        p.innerText=ob.weather.pressure;
+    function run() {
+        if (diadiem.length>0){
+        var url=`https://api.openweathermap.org/data/2.5/weather?q=${diadiem}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`;
+        // step1: call api
+        fetch(url).then(json=>json.json())
+        .then(data=>{
+            // step2: using json (render data to UI/UX)
+            document.getElementById("city").innerText = data.name;
+            document.getElementById("temp").innerText = data.main.temp;
+            document.getElementById("humidity").innerText = data.main.humidity;
+            document.getElementById("pressure").innerText = data.main.pressure;
+        })
+    }
+    }
     </script>
 </body>
 </html>
