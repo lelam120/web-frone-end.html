@@ -1,6 +1,8 @@
 body{
     background-image: url(/images/weather.jpg);
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 .box{
     list-style: none; 
