@@ -1,0 +1,30 @@
+body{
+    background-image: url(/images/weather.jpg);
+    background-size: cover;
+}
+.box{
+    list-style: none; 
+    float: left;
+    width: calc(100%/6);
+    margin: 15px 0;
+    background-color: rgba(61, 106, 202, 0.473);
+    margin: 10px;
+  
+}
+.box .full img{
+    aspect-ratio: 16 / 9;
+}
+
+.full.down{
+    padding: 20px;
+}
+.full .down .right{
+    float: right;
+    width: calc(100%/2);
+}
+
+.full .down .left{
+    float: left;
+    width: calc(100%/2);
+
+}

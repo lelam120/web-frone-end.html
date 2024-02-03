@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Weather forecast </title>
+    <link rel="stylesheet" href="css/Weatherforecast.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body >
+    <section class="section">
+        <div class="container" >
+            <ul id="grid">
+              
+            </ul>
+
+
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function weather(){
+            var ulr = `https://api.openweathermap.org/data/2.5/forecast?q=Hanoi&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`
+            fetch(ulr).then(js=>js.json())
+        
+            .then(data=>{
+                var show = ``
+                var weather = data.list
+                weather.forEach(e => {
+                   var box = `
+                   <li class="box" >
+                        <div class="full">
+                            <div class="up">
+                                <h3>${e.dt_txt}</h3>
+                            </div>
+                            <div class="down" >
+                                <div class="left" >
+                                    <h1><b> ${e.main.temp} &degC</b></h1>
+                                    <h5><b>${e.weather[0].description}</b></h5>
+                                </div>
+                                <div class="right">
+                                    <img src="https://openweathermap.org/img/wn/${e.weather[0].icon}@2x.png"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>`
+                
+                    show += box
+                });
+                document.getElementById("grid").innerHTML = show;
+            })
+        }
+        weather()
+    </script>
+</body>
+</html>
